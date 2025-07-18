@@ -78,10 +78,19 @@ def run_topic_modeling(num_topics=6, passes=10):
 
     # --- Step 5: Print and save results ---
     print("\n--- Identified Topics ---")
-    lda.print_topics()
+    topics = lda.print_topics(num_words=10)
+    for topic in topics:
+        print(topic)
+
+    # Save topics to a file for easy reference
+    topics_summary_file = base_dir / 'docs' / 'topics_summary.txt'
+    with open(topics_summary_file, 'w', encoding='utf-8') as f:
+        for topic_num, topic_words in topics:
+            f.write(f"Topic #{topic_num + 1}: {topic_words}\n")
 
     lda.save(str(model_file))
     print(f"\nLDA model saved to {model_file}")
+    print(f"Topics summary saved to {topics_summary_file}")
 
 if __name__ == '__main__':
     run_topic_modeling()
