@@ -1,0 +1,15 @@
+pandas
+networkx
+matplotlib
+gensim
+scikit-learn
+jupyterlab
+requests
+tqdm
+beautifulsoup4
+lxml
+pyvis
+pdfplumber
+ocrmypdf
+pytesseract
+kaggle
